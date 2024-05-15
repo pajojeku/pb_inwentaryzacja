@@ -1,4 +1,4 @@
-# Projekt na Zajęcia z Programowania Obiektowego
+# Program do Przeprowadzania Inwentaryzacji Uczelni
 
 Ten projekt został stworzony na potrzeby zajęć z Programowania Obiektowego na Politechnice Białostockiej.
 
@@ -7,4 +7,4 @@ Ten projekt został stworzony na potrzeby zajęć z Programowania Obiektowego na
 Program został wykonany z użyciem następujących bibliotek:
 
 - JavaFx
-- nfx-lib
+- [nfx-lib](https://github.com/xdsswar/nfx-lib)
