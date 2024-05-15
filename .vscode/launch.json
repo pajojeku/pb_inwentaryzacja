@@ -7,14 +7,6 @@
             "request": "launch",
             "mainClass": "inwentaryzacja/kss.app.App",
             "projectName": "inwentaryzacja"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "kss.app.App",
-            "projectName": "inwentaryzacja",
-            "vmArgs": "--module-path 'D:/javafx-sdk-22.0.1/lib' --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
