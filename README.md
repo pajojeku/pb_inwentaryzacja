@@ -5,7 +5,6 @@ Ten projekt został stworzony na potrzeby zajęć z Programowania Obiektowego na
 ---
 
 Program został wykonany z użyciem następujących bibliotek:
-
 - JavaFx
 - [nfx-lib](https://github.com/xdsswar/nfx-lib)
 
