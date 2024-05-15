@@ -25,4 +25,6 @@ Program został wykonany z użyciem następujących bibliotek:
 1. Otwórz wiersz poleceń
 2. Uruchom ```mvn clean install```
 3. Uruchom ```mvn clean javafx:jlink```
-4. Możesz teraz uruchomić inwentarz.jar z użyciem wygenerowanego jre /target/image
+4. Możesz teraz:
+    - uruchomić inwentarz.jar z użyciem wygenerowanego jre /target/image
+    - użyć oprogramowania typu [Launch4j](https://launch4j.sourceforge.net/) i stworzyć plik .exe
