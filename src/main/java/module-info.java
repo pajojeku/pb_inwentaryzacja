@@ -5,11 +5,12 @@ module inwentaryzacja {
     requires nfx.core;
     requires java.desktop;
     requires transitive javafx.graphics;
-    requires junit;
+    // requires junit;
 
     opens kss.app to javafx.fxml;
     opens kss.controllers to javafx.fxml;
     opens kss.model to javafx.base;
+
     exports kss.app;
     exports kss.model;
 }
