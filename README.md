@@ -12,7 +12,8 @@ Program został wykonany z użyciem następujących bibliotek:
 
 ## Screenshoty
 
-1. ![alt text](screen.png "Screen")
+1. **Pierwsze uruchomienie**
+![alt text](screen.png "Screen")
 
 ---
 
