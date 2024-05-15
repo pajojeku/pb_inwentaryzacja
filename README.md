@@ -13,7 +13,10 @@ Program został wykonany z użyciem następujących bibliotek:
 ## Screenshoty
 
 1. **Pierwsze uruchomienie**
-![alt text](screen.png "Screen")
+![alt text](screen1.png "Screen1")
+
+2. **Przegląd wyposażenia**
+![alt text](screen2.png "Screen2")
 
 ---
 
