@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="905.0" style="-fx-background-color: transparent;" stylesheets="style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kss.controllers.MainController">
+   <left>
+      <Pane prefHeight="537.0" prefWidth="224.0" style="-fx-background-color: #292929;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="23.0" layoutY="34.0" text="Co chcesz zrobić?" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="31.0" layoutY="91.0" mnemonicParsing="false" onAction="#scenaPrzegladajSale" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: #08a5e6; -fx-background-radius: 30;" text="PRZEGLĄDAJ SALE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#scenaUsunSale" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: #08a5e6; -fx-background-radius: 30;" text="USUŃ SALE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="31.0" layoutY="173.0" mnemonicParsing="false" onAction="#scenaDodajSale" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: #08a5e6; -fx-background-radius: 30;" text="DODAJ SALE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="31.0" layoutY="317.0" mnemonicParsing="false" onAction="#scenaGenerujRaport" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="GENERUJ RAPORT" textFill="#08a5e6">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="106.0" layoutY="394.0" mnemonicParsing="false" onAction="#wczytajPlik" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: transparent;" text="WCZYTAJ STAN" textFill="#a1a1a1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="14.0" layoutY="394.0" mnemonicParsing="false" onAction="#zapiszStan" style="-fx-background-color: transparent;" text="ZAPISZ STAN" textFill="#a1a1a1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane fx:id="stronaGlowna" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="108.0" layoutY="161.0" text="Brak informacji o salach, czy chcesz je wczytać?">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button layoutX="260.0" layoutY="205.0" mnemonicParsing="false" onAction="#wczytajPlik" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: gray;" text="WCZYTAJ PLIK" textFill="#08a5e6">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children></Pane>
+   </center>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</BorderPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane accessibleRole="COMBO_BOX" prefHeight="435.0" prefWidth="681.0" style="-fx-background-color: #f7f7f7;" stylesheets="style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kss.controllers.PrzegladanieController">
+   <children>
+      <Pane layoutX="481.0" prefHeight="435.0" prefWidth="200.0" style="-fx-background-color: #232323;">
+         <children>
+            <Label layoutX="36.0" layoutY="11.0" text="WYBIERZ SALĘ" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="listaSalBox" accessibleRole="LIST_VIEW" layoutX="33.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="137.0" promptText="Nie wybrano sali">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Button layoutX="21.0" layoutY="91.0" mnemonicParsing="false" onAction="#usunSkladnik" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;" text="USUŃ WYBRANY SKŁADNIK" textAlignment="CENTER" textFill="#8d8d8d" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button defaultButton="true" layoutX="21.0" layoutY="393.0" mnemonicParsing="false" onAction="#dodajSkladnik" style="-fx-background-color: transparent;" text="DODAJ SKŁADNIK" textFill="#8d8d8d">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="nazwaPole" layoutX="18.0" layoutY="335.0" prefHeight="25.0" prefWidth="167.0" promptText="Nazwa" />
+            <ComboBox fx:id="typBox" layoutX="18.0" layoutY="368.0" prefHeight="25.0" prefWidth="82.0" promptText="Typ">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <ComboBox fx:id="stanBox" layoutX="103.0" layoutY="368.0" prefHeight="25.0" prefWidth="82.0" promptText="Stan">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <Button layoutX="-2.0" layoutY="193.0" mnemonicParsing="false" onAction="#przeniesWyposazenie" prefHeight="68.0" prefWidth="206.0" style="-fx-background-color: transparent;" text="PRZENIEŚ WYBRANY SKŁADNIK" textAlignment="CENTER" textFill="#8d8d8d" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ComboBox fx:id="nowaSalaBox" layoutX="26.0" layoutY="174.0" prefWidth="150.0" promptText="Wybierz nową salę">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <TextField fx:id="wyszukiwarka" layoutX="27.0" layoutY="275.0" promptText="Wyszukaj składnik" />
+            <Line endX="102.0" layoutX="98.0" layoutY="91.0" startX="-100.0" stroke="#959595" />
+            <Line endX="102.0" layoutX="98.0" layoutY="159.0" startX="-100.0" stroke="#959595" />
+            <Line endX="102.0" layoutX="98.0" layoutY="261.0" startX="-100.0" stroke="#959595" />
+            <Line endX="100.0" layoutX="99.0" layoutY="315.0" startX="-100.0" stroke="#959595" />
+         </children>
+      </Pane>
+      <StackPane fx:id="stackPane" prefHeight="435.0" prefWidth="481.0" />
+   </children>
+</Pane>

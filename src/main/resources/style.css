@@ -1,0 +1,44 @@
+
+.button:hover {
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.08), 15, 0.2, 0, 0);
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: black;
+}
+
+.combo-box-base {
+    -fx-background-color: rgb(255, 255, 255);
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: rgb(255, 255, 255);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill:  black;
+    -fx-padding: 4 0 4 5;
+    -fx-background-color: white;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected,
+.combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background-color:  #08a5e6;
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color:  #08a5e6;
+    -fx-text-fill: white;
+}
+
+.combo-box-base {
+    -fx-background-color: white;
+    -fx-padding: 0;
+}
+
+.table-view .cell {
+	-fx-alignment: center;
+}

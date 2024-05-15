@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="stronaGlowna" prefHeight="435.0" prefWidth="681.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kss.controllers.DodajController">
+   <children>
+      <TextField fx:id="numerSaliDoDodania" layoutX="260.0" layoutY="205.0" prefHeight="43.0" prefWidth="162.0" promptText="Numer sali" style="-fx-border-color: black; -fx-background-color: white;" stylesheets="style.css">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </TextField>
+      <Label layoutX="211.0" layoutY="131.0" prefHeight="72.0" prefWidth="260.0" text="WPROWADŹ NUMER NOWEJ SALI" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button defaultButton="true" layoutX="260.0" layoutY="257.0" mnemonicParsing="false" onAction="#dodajSale" prefHeight="47.0" prefWidth="162.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: gray;" text="DODAJ SALĘ" textFill="#08a5e6">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>
