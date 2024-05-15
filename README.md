@@ -10,7 +10,9 @@ Program został wykonany z użyciem następujących bibliotek:
 
 ---
 
-![alt text](screen.png "Screen")
+## Screenshoty
+
+1. ![alt text](screen.png "Screen")
 
 ---
 
