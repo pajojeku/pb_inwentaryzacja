@@ -19,11 +19,11 @@ import kss.model.Uczelnia;
 public abstract class OperacjeNaPlikach {
     
     // Obsluga okna wczytywania uczelni z pliku
-    public static Uczelnia wczytajUczelnie(ActionEvent event, String opis, String rozszerzenie) {
+    public static Uczelnia wczytajUczelnie(ActionEvent event) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(opis, rozszerzenie));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SAV files (*.sav)", "*.sav"));
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
 
         Uczelnia uczelnia = new Uczelnia();

@@ -8,7 +8,7 @@ import java.util.List;
 public class Sala implements Serializable {
 
     private List<Wyposazenie> wyposazenie = new ArrayList<>();
-    private final String numerSali;
+    private String numerSali;
 
     // Konstruktor sali
     public Sala(String numerSali) {

@@ -60,7 +60,7 @@ public class GenerowanieRaportuController {
     // Otwarcie okna wczytania pliku i wczytanie z niego ewidencji
     @FXML
     void wczytajPlik(ActionEvent event) {
-        ewidencja = OperacjeNaPlikach.wczytajUczelnie(event, "SAV files (*.sav)", "*.sav");
+        ewidencja = OperacjeNaPlikach.wczytajUczelnie(event);
         porownajUczelnie(ewidencja, event);
     }
 

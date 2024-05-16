@@ -49,7 +49,7 @@ public class MainController {
     // Otwarcie okna wczytywania pliku i wczytanie z niego zapisanego stanu uczelni
     @FXML
     void wczytajPlik(ActionEvent event) {
-        App.uczelnia = OperacjeNaPlikach.wczytajUczelnie(event, "SAV files (*.sav)", "*.sav");
+        App.uczelnia = OperacjeNaPlikach.wczytajUczelnie(event);
         sprobujZmienicWidok("PrzegladajSaleScene.fxml");
     }
 

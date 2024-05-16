@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Wyposazenie implements Serializable{
 
-    private final String nazwa;
-    private final Typ typ;
-    private final Stan stan;
+    private String nazwa;
+    private Typ typ;
+    private Stan stan;
 
     // Konstruktor wyposazenia
     public Wyposazenie(String nazwa, Typ typ, Stan stan) {
