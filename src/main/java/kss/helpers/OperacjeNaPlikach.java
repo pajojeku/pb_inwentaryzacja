@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import kss.app.App;
 import kss.model.Uczelnia;
 
 public abstract class OperacjeNaPlikach {
@@ -22,12 +23,10 @@ public abstract class OperacjeNaPlikach {
     public static Uczelnia wczytajUczelnie(ActionEvent event) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SAV files (*.sav)", "*.sav"));
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        Uczelnia uczelnia = App.uczelnia;
 
-        Uczelnia uczelnia = new Uczelnia();
-    
+        FileChooser fileChooser = inicjujOknoPlikow("Pliki zapisu uczelni", ".sav");
+
         File selectedFile = fileChooser.showOpenDialog(stage);
         if (selectedFile != null) {
             try {
@@ -38,11 +37,13 @@ public abstract class OperacjeNaPlikach {
                 fileIn.close();
             } catch (IOException i) {
                 i.printStackTrace();
+                wyswietlBladWczytywania(selectedFile);
             } catch (ClassNotFoundException c) {
                 c.printStackTrace();
-                WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd", "Nie udało się wczytać pliku!\nPlik "+selectedFile.getName()+" może być uszkodzony!");
+                wyswietlBladWczytywania(selectedFile);
             }
         }
+
         return uczelnia;
     }
 
@@ -51,22 +52,23 @@ public abstract class OperacjeNaPlikach {
         if(uczelnia.czyPusta()) {
             WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd zapisu", "Twoja uczelnia nie posiada sal!");
         } else {
-            try {
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SAV files (*.sav)", "*.sav"));
-                fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-                File file = fileChooser.showSaveDialog(stage);
-                if (file != null) {
-                    FileOutputStream fileOut = new FileOutputStream(file);
-                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                    out.writeObject(uczelnia);
-                    out.close();
-                    fileOut.close();
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+
+            FileChooser fileChooser = inicjujOknoPlikow("Pliki zapisu uczelni", ".sav");
+
+            File file = fileChooser.showSaveDialog(stage);
+            if (file != null) {
+                try {
+                FileOutputStream fileOut = new FileOutputStream(file);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(uczelnia);
+                out.close();
+                fileOut.close();
+                } catch (IOException i) {
+                    i.printStackTrace();
+                    wyswietlBladZapisu(file);
                 }
-            } catch (IOException i) {
-                i.printStackTrace();
             }
         }
     }
@@ -84,11 +86,11 @@ public abstract class OperacjeNaPlikach {
     public static void zapiszRaport(ActionEvent event, String tekst, String nazwaPliku) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        FileChooser fileChooser = new FileChooser();        
-        fileChooser.setInitialFileName(nazwaPliku);
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
 
+        FileChooser fileChooser = inicjujOknoPlikow("Dokumenty tekstowe", ".txt");
+
+        // Ustawienie domyślnej nazwy pliku raportu
+        fileChooser.setInitialFileName(nazwaPliku);
         File file = fileChooser.showSaveDialog(stage);
 
         if (file != null) {
@@ -96,8 +98,30 @@ public abstract class OperacjeNaPlikach {
                 writer.write(tekst);
             } catch (IOException e) {
                 e.printStackTrace();
+                wyswietlBladZapisu(file);
             }
             otworzPlik(file);
         }
+    }
+
+    // Metoda inicjujaca okno eksploratora plikow
+    private static FileChooser inicjujOknoPlikow(String opis, String rozszerzenie) {
+        FileChooser fileChooser = new FileChooser();   
+
+        opis += " (*" + rozszerzenie +")";
+        rozszerzenie = "*" + rozszerzenie;
+
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(opis, rozszerzenie));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+        return fileChooser;
+    }
+
+    private static void wyswietlBladWczytywania(File file) {
+        WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd", "Nie udało się wczytać pliku!\nPlik "+file.getName()+" może być uszkodzony!");
+    }
+
+    private static void wyswietlBladZapisu(File file) {
+        WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd", "Nie udało się zapisać pliku!\nPlik "+file.getName());
     }
 }
