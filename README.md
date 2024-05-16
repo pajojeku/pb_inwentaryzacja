@@ -22,7 +22,7 @@ Program został wykonany z użyciem następujących bibliotek:
 
 ## Build
 
-1. Otwórz wiersz poleceń
+1. Otwórz wiersz poleceń w głównym folderze projektu
 2. Uruchom ```mvn clean install```
 3. Uruchom ```mvn clean javafx:jlink```
 4. Możesz teraz:
