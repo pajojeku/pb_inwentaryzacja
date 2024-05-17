@@ -1,0 +1,22 @@
+Karwowski Karol:
+- App.java
+- MainController.java
+- GenerowanieRaportuController.java
+- PrzegladanieController.java
+- OperacjeNaPlikach.java
+- module-info i pom.xml
+
+Świderski Sebastian:
+- Sala.java
+- Uczelnia.java
+- Wyposazenie.java
+- UsunController.java
+
+Sokołowski Mateusz:
+- SalaTest.java
+- UczelniaTest.java
+- WyposazenieTest.java
+- DodajController.java
+- WyswietlanieAlertow.java
+
+Wyglad interfejsu (fxml, css, ikona) wspolnie uzgadniany i realizowany
