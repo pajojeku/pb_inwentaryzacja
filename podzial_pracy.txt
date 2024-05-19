@@ -5,6 +5,7 @@ Karwowski Karol:
 - PrzegladanieController.java
 - OperacjeNaPlikach.java
 - TableCellZTooltipem.java
+- TableCellNumerowany.java
 - module-info i pom.xml
 
 Świderski Sebastian:
