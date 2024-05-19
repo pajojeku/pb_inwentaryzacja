@@ -4,6 +4,7 @@ Karwowski Karol:
 - GenerowanieRaportuController.java
 - PrzegladanieController.java
 - OperacjeNaPlikach.java
+- TableCellZTooltipem.java
 - module-info i pom.xml
 
 Świderski Sebastian:

@@ -7,6 +7,7 @@ import kss.app.App;
 import kss.model.*;
 import kss.model.Wyposazenie.Stan;
 import kss.model.Wyposazenie.Typ;
+import kss.utils.TableCellZTooltipem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -180,6 +181,7 @@ public class PrzegladanieController {
     private TableColumn<Wyposazenie, String> utworzKolumne(String nazwa, String pole) {
         TableColumn<Wyposazenie, String> kolumna = new TableColumn<>(nazwa);
         kolumna.setCellValueFactory(new PropertyValueFactory<>(pole));
+        kolumna.setCellFactory(cell -> new TableCellZTooltipem<>());
         kolumna.setResizable(false);
 
         return kolumna;
