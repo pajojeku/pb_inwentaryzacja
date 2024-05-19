@@ -4,8 +4,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.Tooltip;
 import javafx.util.Duration;
 
-
-// Tablecell z domyslnym tooltipem po najechaniu
+// Tablecell z wyswietlaniem tooltipa po najechaniu myszka
 public class TableCellZTooltipem<S, T> extends TableCell<S, T> {
 
     public TableCellZTooltipem() {
@@ -27,8 +26,12 @@ public class TableCellZTooltipem<S, T> extends TableCell<S, T> {
                 text = item.toString();
             }
             Tooltip tooltip = new Tooltip(text);
+
+            // Zmiana czasu wyswietlenia i znikniecia tooltipa
             tooltip.setShowDelay(Duration.seconds(0.3));
             tooltip.setHideDelay(Duration.seconds(0));
+
+            // Ustawienie tekstu komorki i tooltipa
             setTooltip(tooltip);
             setText(text);
         }

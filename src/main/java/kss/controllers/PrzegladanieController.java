@@ -7,6 +7,7 @@ import kss.app.App;
 import kss.model.*;
 import kss.model.Wyposazenie.Stan;
 import kss.model.Wyposazenie.Typ;
+import kss.ui.TableCellNumerowany;
 import kss.ui.TableCellZTooltipem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +15,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -154,7 +154,7 @@ public class PrzegladanieController {
     // Metoda tworzaca tabele i jej kolumny
     private TableView<Wyposazenie> skonstruujTabele() {
         TableColumn<Wyposazenie, Void> nrColumn = new TableColumn<>("Nr");
-        indeksuj(nrColumn);
+        nrColumn.setCellFactory(cell -> new TableCellNumerowany<>());
         nrColumn.setSortable(false);
         nrColumn.setResizable(false);
         
@@ -185,17 +185,5 @@ public class PrzegladanieController {
         kolumna.setResizable(false);
 
         return kolumna;
-    }
-
-    // Metoda wpisujaca w kolejne pola Nr numery wyposazenia
-    private void indeksuj(TableColumn<Wyposazenie, Void> nrColumn) {
-        nrColumn.setCellFactory(cell -> new TableCell<>() {
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                
-                setText(empty ? "" : String.valueOf(getIndex() + 1));
-            }
-        });
     }
 }
