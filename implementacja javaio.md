@@ -4,11 +4,11 @@
 
 - Serializacja: Biblioteka java.io zawiera interfejsy i klasy do serializacji obiektów, co pozwala na zapisywanie stanu obiektów i odtwarzanie go później.
 
-- Obsługa plików: Za pomocą klas takich jak File, FileInputStream, FileOutputStream i innych, biblioteka java.io umożliwia operacje na plikach, takie jak tworzenie, odczyt, zapis i usuwanie plików.
+- Obsługa plików: Za pomocą klas takich jak **File**, **FileInputStream**, **FileOutputStream** i innych, biblioteka java.io umożliwia operacje na plikach, takie jak tworzenie, odczyt, zapis i usuwanie plików.
 
-- Buforowane strumienie: Klasa BufferedInputStream i BufferedOutputStream dodają funkcjonalność buforowania do strumieni wejścia i wyjścia, co zwiększa wydajność operacji I/O.
+- Buforowane strumienie: Klasa **BufferedInputStream** i **BufferedOutputStream** dodają funkcjonalność buforowania do strumieni wejścia i wyjścia, co zwiększa wydajność operacji I/O.
 
-- Czytanie i pisanie tekstu: Klasa BufferedReader i BufferedWriter umożliwiają efektywne czytanie i pisanie tekstu.
+- Czytanie i pisanie tekstu: Klasa **BufferedReader** i **BufferedWriter** umożliwiają efektywne czytanie i pisanie tekstu.
 
 ---
 
