@@ -1,4 +1,4 @@
-Biblioteka java.io w Javie dostarcza klas i interfejsów, które umożliwiają operacje wejścia-wyjścia (I/O). Oto kilka kluczowych punktów na temat tej biblioteki:
+# Biblioteka java.io w Javie dostarcza klas i interfejsów, które umożliwiają operacje wejścia-wyjścia (I/O). Oto kilka kluczowych punktów na temat tej biblioteki:
 
     Strumienie danych: Biblioteka java.io umożliwia operacje wejścia-wyjścia poprzez strumienie danych. Strumienie mogą być używane do odczytu i zapisu danych w różnych formatach.
 
@@ -9,3 +9,9 @@ Biblioteka java.io w Javie dostarcza klas i interfejsów, które umożliwiają o
     Buforowane strumienie: Klasa BufferedInputStream i BufferedOutputStream dodają funkcjonalność buforowania do strumieni wejścia i wyjścia, co zwiększa wydajność operacji I/O.
 
     Czytanie i pisanie tekstu: Klasa BufferedReader i BufferedWriter umożliwiają efektywne czytanie i pisanie tekstu.
+
+---
+
+##Dokumentacja
+
+https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html
