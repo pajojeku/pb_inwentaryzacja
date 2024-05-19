@@ -11,6 +11,7 @@ public class TableCellZTooltipem<S, T> extends TableCell<S, T> {
         super();
     }
 
+    // Dodanie do komorki tooltipa w sposob zalezny od tego czy zawiera ona enum czy tez nie
     @Override
     protected void updateItem(T item, boolean empty) {
         super.updateItem(item, empty);
