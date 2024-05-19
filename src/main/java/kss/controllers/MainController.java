@@ -2,7 +2,7 @@ package kss.controllers;
 
 import java.io.IOException;
 import kss.app.App;
-import kss.helpers.OperacjeNaPlikach;
+import kss.utils.OperacjeNaPlikach;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

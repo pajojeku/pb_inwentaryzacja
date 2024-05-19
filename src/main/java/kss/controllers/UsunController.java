@@ -1,8 +1,8 @@
 package kss.controllers;
 
 import kss.app.*;
-import kss.helpers.WyswietlanieAlertow;
 import kss.model.Sala;
+import kss.utils.WyswietlanieAlertow;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

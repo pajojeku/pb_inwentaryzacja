@@ -1,4 +1,4 @@
-package kss.utils;
+package kss.ui;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.Tooltip;

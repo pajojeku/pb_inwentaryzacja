@@ -1,8 +1,8 @@
 package kss.controllers;
 
 import kss.app.App;
-import kss.helpers.WyswietlanieAlertow;
 import kss.model.*;
+import kss.utils.WyswietlanieAlertow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;

@@ -7,7 +7,7 @@ import kss.app.App;
 import kss.model.*;
 import kss.model.Wyposazenie.Stan;
 import kss.model.Wyposazenie.Typ;
-import kss.utils.TableCellZTooltipem;
+import kss.ui.TableCellZTooltipem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

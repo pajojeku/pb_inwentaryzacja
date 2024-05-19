@@ -8,8 +8,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import kss.helpers.WyswietlanieAlertow;
 import kss.model.Uczelnia;
+import kss.utils.WyswietlanieAlertow;
 import xss.it.nfx.NfxWindow;
 
 public class App extends Application {
