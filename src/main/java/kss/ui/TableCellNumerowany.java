@@ -9,7 +9,7 @@ public class TableCellNumerowany<S, T> extends TableCell<S, T> {
         super();
     }
 
-    // Metoda wpisujaca w pole odpowiedni numer dla wyposazenia
+    // Metoda wpisujaca w pole numer wiersza
     @Override
     protected void updateItem(T item, boolean empty) {
         super.updateItem(item, empty);
