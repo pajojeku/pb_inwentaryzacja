@@ -1,4 +1,4 @@
-package kss.model.mebel;
+package kss.model.wyposazenie.mebel;
 
 public class Biurko extends Mebel {
 

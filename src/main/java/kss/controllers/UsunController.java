@@ -2,7 +2,7 @@ package kss.controllers;
 
 import kss.app.*;
 import kss.model.Sala;
-import kss.utils.WyswietlanieAlertow;
+import kss.utils.WyswietlanieOkien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,7 +36,7 @@ public class UsunController {
         int wynik = App.uczelnia.usunSale(sala);
 
         // Wyświetlenie odpowiedniego komunikatu w zależności od wyniku operacji
-        WyswietlanieAlertow.wyswietl(wynik==0 ? AlertType.INFORMATION : AlertType.ERROR, 
+        WyswietlanieOkien.wyswietlAlert(wynik==0 ? AlertType.INFORMATION : AlertType.ERROR, 
         "Informacja", wynik==0 ? "Sala usunięta!" : "Najpierw wybierz salę!");
         
         // Ponowne ustawienie pol comboboxa listaSalBox po usunieciu sali

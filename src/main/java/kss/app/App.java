@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import kss.model.Uczelnia;
-import kss.utils.WyswietlanieAlertow;
+import kss.utils.WyswietlanieOkien;
 import xss.it.nfx.NfxWindow;
 
 public class App extends Application {
@@ -47,7 +47,7 @@ public class App extends Application {
 
         } else {
             // Jeśli system operacyjny nie jest Windows 10 lub nowszy, wyświetlenie błędu i zakończenie działania aplikacji
-            WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd",
+            WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd",
             "Do działania programu wymagany jest system operacyjny Windows 10 lub nowszy!");
             System.exit(-1);
         }

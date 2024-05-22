@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import kss.model.wyposazenie.Wyposazenie;
+
 public class Sala implements Serializable {
 
     private List<Wyposazenie> wyposazenie = new ArrayList<>();

@@ -12,4 +12,5 @@ module inwentaryzacja {
 
     exports kss.app;
     exports kss.model;
+    exports kss.model.wyposazenie;
 }

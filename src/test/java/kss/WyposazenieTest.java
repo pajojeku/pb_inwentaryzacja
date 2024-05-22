@@ -3,9 +3,9 @@ package kss;
 import org.junit.Before;
 import org.junit.Test;
 
-import kss.model.Wyposazenie;
-import kss.model.Wyposazenie.Stan;
-import kss.model.mebel.Krzeslo;
+import kss.model.wyposazenie.Wyposazenie;
+import kss.model.wyposazenie.Wyposazenie.Stan;
+import kss.model.wyposazenie.mebel.Krzeslo;
 
 import static org.junit.Assert.*;
 

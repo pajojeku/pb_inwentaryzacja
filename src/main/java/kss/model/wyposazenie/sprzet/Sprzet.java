@@ -1,6 +1,6 @@
-package kss.model.sprzet;
+package kss.model.wyposazenie.sprzet;
 
-import kss.model.Wyposazenie;
+import kss.model.wyposazenie.Wyposazenie;
 
 public class Sprzet extends Wyposazenie{
 

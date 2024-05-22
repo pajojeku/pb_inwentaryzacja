@@ -13,7 +13,7 @@ public class TableCellNumerowany<S, T> extends TableCell<S, T> {
     @Override
     protected void updateItem(T item, boolean empty) {
         super.updateItem(item, empty);
-            
+        
         setText(empty ? "" : String.valueOf(getIndex() + 1));
     }
 

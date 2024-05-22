@@ -1,6 +1,6 @@
-package kss.model.mebel;
+package kss.model.wyposazenie.mebel;
 
-import kss.model.Wyposazenie;
+import kss.model.wyposazenie.Wyposazenie;
 
 public class Mebel extends Wyposazenie{
 

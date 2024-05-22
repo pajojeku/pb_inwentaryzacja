@@ -1,4 +1,4 @@
-package kss.model.sprzet;
+package kss.model.wyposazenie.sprzet;
 
 public class Drukarka extends Sprzet {
 

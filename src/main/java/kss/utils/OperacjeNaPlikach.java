@@ -50,7 +50,7 @@ public abstract class OperacjeNaPlikach {
     // Obsluga okna zapisu uczelni do pliku
     public static void zapiszUczelnie(ActionEvent event, Uczelnia uczelnia) {
         if(uczelnia.czyPusta()) {
-            WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd zapisu", "Twoja uczelnia nie posiada sal!");
+            WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd zapisu", "Twoja uczelnia nie posiada sal!");
         } else {
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
@@ -120,11 +120,11 @@ public abstract class OperacjeNaPlikach {
 
     // Metoda wyswietlajaca alert odnosnie problem z wczytaniem pliku
     private static void wyswietlBladWczytywania(File file) {
-        WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd", "Nie udało się wczytać pliku!\nPlik "+file.getName()+" może być uszkodzony!");
+        WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd", "Nie udało się wczytać pliku!\nPlik "+file.getName()+" może być uszkodzony!");
     }
 
     // Metoda wyswietlajaca alert odnosnie problemow z zapisem pliku
     private static void wyswietlBladZapisu(File file) {
-        WyswietlanieAlertow.wyswietl(AlertType.ERROR, "Błąd", "Nie udało się zapisać pliku!\nPlik "+file.getName());
+        WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd", "Nie udało się zapisać pliku!\nPlik "+file.getName());
     }
 }

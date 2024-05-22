@@ -1,20 +1,22 @@
 package kss.controllers;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import kss.app.App;
 import kss.model.*;
-import kss.model.sprzet.Drukarka;
-import kss.model.sprzet.InnyMebel;
-import kss.model.sprzet.Komputer;
-import kss.model.Wyposazenie.Stan;
-import kss.model.Wyposazenie.Typ;
-import kss.model.mebel.Biurko;
-import kss.model.mebel.InnySprzet;
-import kss.model.mebel.Krzeslo;
+import kss.model.wyposazenie.InneWyposazenie;
+import kss.model.wyposazenie.Wyposazenie;
+import kss.model.wyposazenie.Wyposazenie.Stan;
+import kss.model.wyposazenie.Wyposazenie.Typ;
+import kss.model.wyposazenie.mebel.Biurko;
+import kss.model.wyposazenie.mebel.Krzeslo;
+import kss.model.wyposazenie.sprzet.Drukarka;
+import kss.model.wyposazenie.sprzet.Komputer;
 import kss.ui.TableCellNumerowany;
 import kss.ui.TableCellZTooltipem;
+import kss.utils.WyswietlanieOkien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,11 +76,14 @@ public class PrzegladanieController {
         typBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             wyposazenieBox.setDisable(false);
             Typ typ = typBox.getSelectionModel().getSelectedItem();
+            wyposazenieBox.getItems().clear();
+            wyposazenieBox.getSelectionModel().select(null);
             if (typ.equals(Typ.SPRZET)) {
-                wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null), new InnySprzet(null));
+                wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null));
             } else if (typ.equals(Typ.MEBEL)) {
-                wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null), new InnyMebel(null));
+                wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null));
             }
+            wyposazenieBoxList.add(new InneWyposazenie(null));
             wyposazenieBox.setItems(wyposazenieBoxList);
 
         });
@@ -98,11 +103,28 @@ public class PrzegladanieController {
         Stan stan = stanBox.getSelectionModel().getSelectedItem();
 
         // Pobranie nazwy z pola, ustawienie wielkich liter i usuniecie zbednych spacji
-        Wyposazenie w = wyposazenieBox.getSelectionModel().getSelectedItem();
-        w.setStan(stan);
+        Wyposazenie noweWyposazenie = null;
+        try {
+            noweWyposazenie = wyposazenieBox.getSelectionModel().getSelectedItem().getClass().getConstructor(Stan.class).newInstance(stan);
+        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+                | NoSuchMethodException | SecurityException e) {
+            e.printStackTrace();
+        }
 
-        if(sala!=null && typ!=null && stan!=null) {
-            sala.dodajSkladnik(w);
+        if(sala!=null && typ!=null && stan!=null && noweWyposazenie!=null) {
+            noweWyposazenie.setStan(stan);
+            if(noweWyposazenie instanceof InneWyposazenie) {
+                String nazwa = WyswietlanieOkien.wyswietlDialog("Wybierz nazwę wyposażenia", 
+                "Wpisz nazwę dla nowego wyposażenia");
+                if(!nazwa.equals("")) {
+                    noweWyposazenie.setNazwa(nazwa);
+                } else {
+                   return;
+                }
+                noweWyposazenie.setNazwa(nazwa);
+                noweWyposazenie.setTyp(typ);
+            }
+            sala.dodajSkladnik(noweWyposazenie);
             filtrujWyposazenie();
         }
     }
@@ -136,11 +158,12 @@ public class PrzegladanieController {
             Sala wyposazenieSali = listaSalBox.getSelectionModel().getSelectedItem();
 
             List<Wyposazenie> tmp = wyposazenieSali.getWyposazenie().stream()
-            .filter(o -> o.getNazwa().toLowerCase().contains(wyszukiwarka.getText().toLowerCase()))
+            .filter(o -> o.getNazwa().contains(wyszukiwarka.getText().toUpperCase()))
             .collect(Collectors.toList());
 
             ObservableList<Wyposazenie> przefiltrowanaLista = FXCollections.observableArrayList(tmp);
 
+            tabelaWyposazenia.getItems().clear();
             tabelaWyposazenia.setItems(przefiltrowanaLista);
         } else {
             aktualizujListeWyposazenia();
