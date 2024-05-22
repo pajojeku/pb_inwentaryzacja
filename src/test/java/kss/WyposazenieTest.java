@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kss.model.Wyposazenie;
+import kss.model.Wyposazenie.Stan;
+import kss.model.mebel.Krzeslo;
 
 import static org.junit.Assert.*;
 
@@ -12,12 +14,12 @@ public class WyposazenieTest {
 
     @Before
     public void setUp() {
-        wyposazenie = new Wyposazenie("Krzesło", Wyposazenie.Typ.MEBEL, Wyposazenie.Stan.DOBRY);
+        wyposazenie = new Krzeslo(Stan.DOBRY);
     }
 
     @Test
     public void testGetNazwa() {
-        assertEquals("Krzesło", wyposazenie.getNazwa());
+        assertEquals("KRZESŁO", wyposazenie.getNazwa());
     }
 
     @Test
@@ -32,7 +34,7 @@ public class WyposazenieTest {
 
     @Test
     public void testEquals() {
-        Wyposazenie innyWyposazenie = new Wyposazenie("Krzesło", Wyposazenie.Typ.MEBEL, Wyposazenie.Stan.DOBRY);
+        Wyposazenie innyWyposazenie = new Krzeslo(Stan.DOBRY);
         assertTrue(wyposazenie.equals(innyWyposazenie));
     }
 }

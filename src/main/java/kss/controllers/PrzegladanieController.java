@@ -5,8 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import kss.app.App;
 import kss.model.*;
+import kss.model.sprzet.Drukarka;
+import kss.model.sprzet.InnyMebel;
+import kss.model.sprzet.Komputer;
 import kss.model.Wyposazenie.Stan;
 import kss.model.Wyposazenie.Typ;
+import kss.model.mebel.Biurko;
+import kss.model.mebel.InnySprzet;
+import kss.model.mebel.Krzeslo;
 import kss.ui.TableCellNumerowany;
 import kss.ui.TableCellZTooltipem;
 import javafx.collections.FXCollections;
@@ -32,11 +38,12 @@ public class PrzegladanieController {
     @FXML
     private StackPane stackPane;
 
-    @FXML
-    private TextField nazwaPole;
 
     @FXML
     private TextField wyszukiwarka;
+
+    @FXML
+    private ComboBox<Wyposazenie> wyposazenieBox;
 
     @FXML
     private ComboBox<Wyposazenie.Stan> stanBox;
@@ -48,6 +55,7 @@ public class PrzegladanieController {
     private ObservableList<Wyposazenie.Stan> stanBoxList = FXCollections.observableArrayList();
     private ObservableList<Wyposazenie.Typ> typBoxList = FXCollections.observableArrayList();
     private ObservableList<Wyposazenie> listaWyposazenia = FXCollections.observableArrayList();
+    private ObservableList<Wyposazenie> wyposazenieBoxList = FXCollections.observableArrayList();
     private TableView<Wyposazenie> tabelaWyposazenia;
 
     @FXML
@@ -61,6 +69,18 @@ public class PrzegladanieController {
         listaSalBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             wyszukiwarka.setDisable(false);
             filtrujWyposazenie();
+        });
+
+        typBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            wyposazenieBox.setDisable(false);
+            Typ typ = typBox.getSelectionModel().getSelectedItem();
+            if (typ.equals(Typ.SPRZET)) {
+                wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null), new InnySprzet(null));
+            } else if (typ.equals(Typ.MEBEL)) {
+                wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null), new InnyMebel(null));
+            }
+            wyposazenieBox.setItems(wyposazenieBoxList);
+
         });
         // Dodanie nasłuchiwacza, który na biezaco filtruje wyposazenie po nazwie wpisanej w wyszukiwarke
         wyszukiwarka.textProperty().addListener( (options, oldValue, newValue) -> {filtrujWyposazenie();});
@@ -78,10 +98,11 @@ public class PrzegladanieController {
         Stan stan = stanBox.getSelectionModel().getSelectedItem();
 
         // Pobranie nazwy z pola, ustawienie wielkich liter i usuniecie zbednych spacji
-        String nazwa = nazwaPole.getText().toUpperCase().trim();
+        Wyposazenie w = wyposazenieBox.getSelectionModel().getSelectedItem();
+        w.setStan(stan);
 
-        if(sala!=null && typ!=null && stan!=null && !nazwa.isEmpty()) {
-            sala.dodajSkladnik(new Wyposazenie(nazwa, typ, stan));
+        if(sala!=null && typ!=null && stan!=null) {
+            sala.dodajSkladnik(w);
             filtrujWyposazenie();
         }
     }

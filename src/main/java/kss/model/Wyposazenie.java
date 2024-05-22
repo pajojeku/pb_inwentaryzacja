@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Wyposazenie implements Serializable{
 
-    private String nazwa;
+    protected String nazwa;
     private Typ typ;
     private Stan stan;
 
@@ -30,6 +30,10 @@ public class Wyposazenie implements Serializable{
         return stan;
     }
 
+    public void setStan(Stan stan) {
+        this.stan = stan;
+    }
+
     // Nadpisanie metody equals
     // Skladniki sa sobie rowne jesli maja taka sama nazwe, typ i stan
     @Override
@@ -42,6 +46,11 @@ public class Wyposazenie implements Serializable{
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return nazwa;
     }
 
     // Mozliwe stany wyposazenia

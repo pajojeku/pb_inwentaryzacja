@@ -40,12 +40,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="nazwaPole" layoutX="18.0" layoutY="335.0" prefHeight="25.0" prefWidth="167.0" promptText="Nazwa" />
-            <ComboBox fx:id="typBox" layoutX="18.0" layoutY="368.0" prefHeight="25.0" prefWidth="82.0" promptText="Typ">
+            <ComboBox fx:id="typBox" layoutX="18.0" layoutY="337.0" prefHeight="25.0" prefWidth="82.0" promptText="Typ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ComboBox fx:id="stanBox" layoutX="103.0" layoutY="368.0" prefHeight="25.0" prefWidth="82.0" promptText="Stan">
+            <ComboBox fx:id="stanBox" layoutX="103.0" layoutY="337.0" prefHeight="25.0" prefWidth="82.0" promptText="Stan">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
@@ -67,6 +66,11 @@
             <Line endX="102.0" layoutX="98.0" layoutY="159.0" startX="-100.0" stroke="#959595" />
             <Line endX="102.0" layoutX="98.0" layoutY="261.0" startX="-100.0" stroke="#959595" />
             <Line endX="100.0" layoutX="99.0" layoutY="315.0" startX="-100.0" stroke="#959595" />
+            <ComboBox fx:id="wyposazenieBox" disable="true" layoutX="18.0" layoutY="368.0" prefHeight="25.0" prefWidth="168.0" promptText="Wyposazenie">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
          </children>
       </Pane>
       <StackPane fx:id="stackPane" prefHeight="435.0" prefWidth="481.0" />

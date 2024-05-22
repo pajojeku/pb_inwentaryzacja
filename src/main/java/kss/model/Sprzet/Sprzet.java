@@ -1,11 +1,10 @@
-package kss.model.Sprzet;
+package kss.model.sprzet;
 
 import kss.model.Wyposazenie;
 
 public class Sprzet extends Wyposazenie{
 
-    public Sprzet(String nazwa, Typ typ, Stan stan) {
-        super(nazwa, typ, stan);
+    public Sprzet(String nazwa, Stan stan) {
+        super(nazwa, Typ.SPRZET, stan);
     }
-    
 }
