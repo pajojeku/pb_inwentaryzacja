@@ -10,6 +10,7 @@ import kss.model.Uczelnia;
 import kss.model.wyposazenie.Wyposazenie;
 import kss.model.wyposazenie.Wyposazenie.Stan;
 import kss.utils.OperacjeNaPlikach;
+import kss.utils.WyswietlanieOkien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -71,8 +73,11 @@ public class GenerowanieRaportuController {
         String raport = utworzRaport(uczelnia, salaAktualna);
        
         // Otwarcie okna zapisu pliku z raportem sali z domyslna nazwa
-        String nazwaPliku = "Sala" + salaAktualna.getNumerSali() + "raport.txt";
-        OperacjeNaPlikach.zapiszRaport(event, raport, nazwaPliku);
+        if(!raport.equals("")) {
+            String nazwaPliku = "s" + salaAktualna.getNumerSali() + "raport.txt";
+            OperacjeNaPlikach.zapiszRaport(event, raport, nazwaPliku);
+        }
+
     }
 
     // Metoda tworząca raport różnic między obiektami uczelni
@@ -141,7 +146,10 @@ public class GenerowanieRaportuController {
             }
         } else {
             // Informacja w przypadku braku wybranej sali w ewidencji
-            raport = "Nie znaleziono sali " + salaAktualna.getNumerSali() + " w ewidencji!";
+            // raport = "Nie znaleziono sali " + salaAktualna.getNumerSali() + " w ewidencji!";
+            WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Uwaga!", "Nie znaleziono sali " + salaAktualna.getNumerSali() + " w ewidencji!");
+            return "";
+            
         }
 
         // Informacja w przypadku braku różnic 

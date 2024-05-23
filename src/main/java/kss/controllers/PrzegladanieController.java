@@ -12,8 +12,16 @@ import kss.model.wyposazenie.Wyposazenie.Stan;
 import kss.model.wyposazenie.Wyposazenie.Typ;
 import kss.model.wyposazenie.mebel.Biurko;
 import kss.model.wyposazenie.mebel.Krzeslo;
+import kss.model.wyposazenie.mebel.Regal;
+import kss.model.wyposazenie.mebel.Stol;
+import kss.model.wyposazenie.mebel.Szafa;
 import kss.model.wyposazenie.sprzet.Drukarka;
+import kss.model.wyposazenie.sprzet.Klawiatura;
 import kss.model.wyposazenie.sprzet.Komputer;
+import kss.model.wyposazenie.sprzet.Laptop;
+import kss.model.wyposazenie.sprzet.Mikrofon;
+import kss.model.wyposazenie.sprzet.Mysz;
+import kss.model.wyposazenie.sprzet.Router;
 import kss.ui.TableCellNumerowany;
 import kss.ui.TableCellZTooltipem;
 import kss.utils.WyswietlanieOkien;
@@ -79,9 +87,11 @@ public class PrzegladanieController {
             wyposazenieBox.getItems().clear();
             wyposazenieBox.getSelectionModel().select(null);
             if (typ.equals(Typ.SPRZET)) {
-                wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null));
+                wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null), new Klawiatura(null), 
+                    new Laptop(null), new Mikrofon(null), new Mysz(null), new Router(null));
             } else if (typ.equals(Typ.MEBEL)) {
-                wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null));
+                wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null), new Regal(null), 
+                    new Stol(null), new Szafa(null));
             }
             wyposazenieBoxList.add(new InneWyposazenie(null));
             wyposazenieBox.setItems(wyposazenieBoxList);
