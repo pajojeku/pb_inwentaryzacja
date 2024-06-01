@@ -2,7 +2,7 @@ package kss.model.wyposazenie;
 
 import java.io.Serializable;
 
-public class Wyposazenie implements Serializable{
+public abstract class Wyposazenie implements Serializable{
 
     protected String nazwa;
     private Typ typ;
@@ -13,6 +13,12 @@ public class Wyposazenie implements Serializable{
         this.nazwa = nazwa;
         this.typ = typ;
         this.stan = stan;
+    }
+
+    public Wyposazenie() {
+        this.nazwa = null;
+        this.typ = null;
+        this.stan = null;
     }
 
     // Metoda zwracajaca nazwe wyposazenia

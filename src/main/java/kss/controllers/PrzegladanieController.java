@@ -2,6 +2,7 @@ package kss.controllers;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import kss.app.App;
@@ -81,11 +82,14 @@ public class PrzegladanieController {
             filtrujWyposazenie();
         });
 
+        // Dodanie nasluchiwacza, ktory pozwala wybrac wyposazenie z comboboxa po wybraniu jego typu
         typBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             wyposazenieBox.setDisable(false);
             Typ typ = typBox.getSelectionModel().getSelectedItem();
             wyposazenieBox.getItems().clear();
             wyposazenieBox.getSelectionModel().select(null);
+
+            // Uzupelnianie comboboxa wyposazeniem w zaleznosci od wybranego typu
             if (typ.equals(Typ.SPRZET)) {
                 wyposazenieBoxList.setAll(new Drukarka(null), new Komputer(null), new Klawiatura(null), 
                     new Laptop(null), new Mikrofon(null), new Mysz(null), new Router(null));
@@ -93,6 +97,7 @@ public class PrzegladanieController {
                 wyposazenieBoxList.setAll(new Krzeslo(null), new Biurko(null), new Regal(null), 
                     new Stol(null), new Szafa(null));
             }
+            wyposazenieBoxList.sort(Comparator.comparing(Wyposazenie::getNazwa));
             wyposazenieBoxList.add(new InneWyposazenie(null));
             wyposazenieBox.setItems(wyposazenieBoxList);
 
@@ -112,7 +117,7 @@ public class PrzegladanieController {
         Typ typ = typBox.getSelectionModel().getSelectedItem();
         Stan stan = stanBox.getSelectionModel().getSelectedItem();
 
-        // Pobranie nazwy z pola, ustawienie wielkich liter i usuniecie zbednych spacji
+        // Utworzenie nowego obiektu klasy pochodnej od Wyposazenia
         Wyposazenie noweWyposazenie = null;
         try {
             noweWyposazenie = wyposazenieBox.getSelectionModel().getSelectedItem().getClass().getConstructor(Stan.class).newInstance(stan);
@@ -121,8 +126,10 @@ public class PrzegladanieController {
             e.printStackTrace();
         }
 
+        // Dodanie obiektu wyposazenia do sali
         if(sala!=null && typ!=null && stan!=null && noweWyposazenie!=null) {
             noweWyposazenie.setStan(stan);
+            // Spytaj uzytkownika o nazwe jesli wybral inne wyposazenie
             if(noweWyposazenie instanceof InneWyposazenie) {
                 String nazwa = WyswietlanieOkien.wyswietlDialog("Wybierz nazwę wyposażenia", 
                 "Wpisz nazwę dla nowego wyposażenia");
@@ -134,6 +141,7 @@ public class PrzegladanieController {
                 noweWyposazenie.setNazwa(nazwa);
                 noweWyposazenie.setTyp(typ);
             }
+
             sala.dodajSkladnik(noweWyposazenie);
             filtrujWyposazenie();
         }

@@ -90,7 +90,7 @@ public class GenerowanieRaportuController {
 
             Collections.sort(listaAktualna, Comparator.comparing(Wyposazenie::getNazwa).thenComparing(Wyposazenie::getStan));
             Collections.sort(listaEwidencji, Comparator.comparing(Wyposazenie::getNazwa).thenComparing(Wyposazenie::getStan));
-
+            
             List<Wyposazenie> prawidloweWyposazenie = new ArrayList<>();
 
 
