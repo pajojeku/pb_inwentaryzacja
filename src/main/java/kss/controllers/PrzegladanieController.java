@@ -1,6 +1,5 @@
 package kss.controllers;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -121,8 +120,7 @@ public class PrzegladanieController {
         Wyposazenie noweWyposazenie = null;
         try {
             noweWyposazenie = wyposazenieBox.getSelectionModel().getSelectedItem().getClass().getConstructor(Stan.class).newInstance(stan);
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-                | NoSuchMethodException | SecurityException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
