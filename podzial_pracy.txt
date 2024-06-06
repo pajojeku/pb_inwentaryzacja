@@ -6,6 +6,7 @@ Karwowski Karol:
 - OperacjeNaPlikach.java
 - TableCellZTooltipem.java
 - TableCellNumerowany.java
+- InneWyposazenie.java
 - module-info i pom.xml
 
 Świderski Sebastian:
@@ -13,6 +14,12 @@ Karwowski Karol:
 - Uczelnia.java
 - Wyposazenie.java
 - UsunController.java
+- Biurko.java
+- Krzeslo.java
+- Mebel.java
+- Regal.java
+- Stol.java
+- Szafa.java
 
 Sokołowski Mateusz:
 - SalaTest.java
@@ -20,5 +27,13 @@ Sokołowski Mateusz:
 - WyposazenieTest.java
 - DodajController.java
 - WyswietlanieAlertow.java
+- Drukarka.java
+- Klawiatura.java
+- Komputer.java
+- Laptop.java
+- Mikrofon.java
+- Mysz.java
+- Router.java
+- Sprzet.java
 
 Wyglad interfejsu (fxml, css, ikona) wspolnie uzgadniany i realizowany
