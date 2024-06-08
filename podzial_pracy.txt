@@ -8,7 +8,7 @@ Karwowski Karol:
 - TableCellNumerowany.java
 - module-info i pom.xml
 
-Świderski Sebastian:
+Świderski seba Sebastian:
 - Sala.java
 - Uczelnia.java
 - Wyposazenie.java
