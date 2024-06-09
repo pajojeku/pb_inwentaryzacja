@@ -18,7 +18,7 @@ public class App extends Application {
     public static Uczelnia uczelnia = new Uczelnia();
     
     // Załadowanie ikony aplikacji
-    public static Image icon = new Image("/icon.png");
+    public static final Image icon = new Image("/icon.png");
 
     @Override
     public void start(Stage primaryStage) throws Exception{

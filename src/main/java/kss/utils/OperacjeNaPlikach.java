@@ -14,16 +14,15 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import kss.app.App;
 import kss.model.Uczelnia;
 
 public abstract class OperacjeNaPlikach {
     
     // Obsluga okna wczytywania uczelni z pliku
-    public static Uczelnia wczytajUczelnie(ActionEvent event) {
+    public static final Uczelnia wczytajUczelnie(ActionEvent event) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Uczelnia uczelnia = App.uczelnia;
+        Uczelnia uczelnia = null;
 
         FileChooser fileChooser = inicjujOknoPlikow("Pliki zapisu uczelni", ".sav");
 
@@ -48,7 +47,7 @@ public abstract class OperacjeNaPlikach {
     }
 
     // Obsluga okna zapisu uczelni do pliku
-    public static void zapiszUczelnie(ActionEvent event, Uczelnia uczelnia) {
+    public static final void zapiszUczelnie(ActionEvent event, Uczelnia uczelnia) {
         if(uczelnia.czyPusta()) {
             WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd zapisu", "Twoja uczelnia nie posiada sal!");
         } else {
@@ -74,7 +73,7 @@ public abstract class OperacjeNaPlikach {
     }
 
     // Obsluga okna zapisu raportu do pliku
-    public static void zapiszRaport(ActionEvent event, String tekst, String nazwaPliku) {
+    public static final void zapiszRaport(ActionEvent event, String tekst, String nazwaPliku) {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
@@ -96,7 +95,7 @@ public abstract class OperacjeNaPlikach {
     }
 
     // Otwarcie pliku domyslnym programem
-    public static void otworzPlik(File file) {
+    public static final void otworzPlik(File file) {
         try {
             Desktop.getDesktop().open(file);
         } catch (IOException e) {
@@ -106,7 +105,7 @@ public abstract class OperacjeNaPlikach {
     
 
     // Metoda inicjujaca okno eksploratora plikow
-    private static FileChooser inicjujOknoPlikow(String opis, String rozszerzenie) {
+    private static final FileChooser inicjujOknoPlikow(String opis, String rozszerzenie) {
         FileChooser fileChooser = new FileChooser();   
 
         opis += " (*" + rozszerzenie +")";
@@ -119,12 +118,12 @@ public abstract class OperacjeNaPlikach {
     }
 
     // Metoda wyswietlajaca alert odnosnie problem z wczytaniem pliku
-    private static void wyswietlBladWczytywania(File file) {
+    private static final void wyswietlBladWczytywania(File file) {
         WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd", "Nie udało się wczytać pliku!\nPlik "+file.getName()+" może być uszkodzony!");
     }
 
     // Metoda wyswietlajaca alert odnosnie problemow z zapisem pliku
-    private static void wyswietlBladZapisu(File file) {
+    private static final void wyswietlBladZapisu(File file) {
         WyswietlanieOkien.wyswietlAlert(AlertType.ERROR, "Błąd", "Nie udało się zapisać pliku!\nPlik "+file.getName());
     }
 }

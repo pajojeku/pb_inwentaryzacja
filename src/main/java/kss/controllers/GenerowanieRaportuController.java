@@ -63,11 +63,13 @@ public class GenerowanieRaportuController {
     @FXML
     void wczytajPlik(ActionEvent event) {
         ewidencja = OperacjeNaPlikach.wczytajUczelnie(event);
-        porownajUczelnie(ewidencja, event);
+        if (ewidencja !=null) {
+            porownajUczelnie(ewidencja, event);
+        }
     }
 
     // Metoda porównująca aktualny stan uczelni z ewidencją
-    private void porownajUczelnie(Uczelnia uczelnia, ActionEvent event) {
+    private final void porownajUczelnie(Uczelnia uczelnia, ActionEvent event) {
         Sala salaAktualna = listaSalBox.getSelectionModel().getSelectedItem();
 
         String raport = utworzRaport(uczelnia, salaAktualna);
@@ -81,7 +83,7 @@ public class GenerowanieRaportuController {
     }
 
     // Metoda tworząca raport różnic między obiektami uczelni
-    private String utworzRaport(Uczelnia uczelnia, Sala salaAktualna) {
+    private final String utworzRaport(Uczelnia uczelnia, Sala salaAktualna) {
         String raport = "";
         List<Wyposazenie> listaAktualna = new ArrayList<>(salaAktualna.getWyposazenie());
         if (uczelnia.getSale().contains(salaAktualna)) {

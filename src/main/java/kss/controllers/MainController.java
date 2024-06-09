@@ -54,7 +54,7 @@ public class MainController {
     }
 
     // Metoda zmieniajaca widok tylko jesli uczelnia ma jakies sale (wczytano ja z pliku, lub dodano)
-    private void sprobujZmienicWidok(String string) {
+    private final void sprobujZmienicWidok(String string) {
         if(App.uczelnia != null && !App.uczelnia.czyPusta()) {
             zmienWidok(string);
         } else {
@@ -63,7 +63,7 @@ public class MainController {
     }
 
     // Metoda zmieniajaca widok (podmieniajca sekcje glowna borderPane)
-    private void zmienWidok(String scena) {
+    private final void zmienWidok(String scena) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/scenes/"+scena));
             borderPane.setCenter(root);  

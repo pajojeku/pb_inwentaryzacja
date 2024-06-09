@@ -12,7 +12,7 @@ import kss.app.App;
 public abstract class WyswietlanieOkien {
 
     // Metoda wyswietlajaca prosty Alert
-    public static void wyswietlAlert(AlertType typAlertu, String tytul, String tresc) {
+    public static final void wyswietlAlert(AlertType typAlertu, String tytul, String tresc) {
             Alert alert = new Alert(typAlertu);
             alert.setContentText(tresc);
 
@@ -23,7 +23,8 @@ public abstract class WyswietlanieOkien {
             alert.showAndWait();
     }
 
-    public static String wyswietlDialog(String tytul, String tekst) {
+    // Metoda wyswietlajaca okno dialogowe
+    public static final String wyswietlDialog(String tytul, String tekst) {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setGraphic(null);
         ((Stage)dialog.getDialogPane().getScene().getWindow()).getIcons().add(App.icon);

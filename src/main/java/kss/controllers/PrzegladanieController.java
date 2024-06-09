@@ -169,7 +169,7 @@ public class PrzegladanieController {
     }
 
     // Metoda wpisujaca w tabele wyposazenie sali przefiltrowane po nazwie
-    private void filtrujWyposazenie() {
+    private final void filtrujWyposazenie() {
         if(!wyszukiwarka.getText().equals("")) {
             Sala wyposazenieSali = listaSalBox.getSelectionModel().getSelectedItem();
 
@@ -187,7 +187,7 @@ public class PrzegladanieController {
     }
 
     // Metoda wpisujaca w tabele cale wyposazenie sali
-    private void aktualizujListeWyposazenia() {       
+    private final void aktualizujListeWyposazenia() {       
         Sala wyposazenieSali = listaSalBox.getSelectionModel().getSelectedItem();
         listaWyposazenia = FXCollections.observableArrayList(wyposazenieSali.getWyposazenie());
         tabelaWyposazenia.getItems().clear();
@@ -195,7 +195,7 @@ public class PrzegladanieController {
     }
 
     // Metoda ustawiajaca zawartosc wszystkich comboboxow
-    private void wypelnijComboboxy() {
+    private final void wypelnijComboboxy() {
         listaSal.addAll(App.uczelnia.getSale());
         listaSalBox.setItems(listaSal);
 
@@ -212,7 +212,7 @@ public class PrzegladanieController {
     }
 
     // Metoda tworzaca tabele i jej kolumny
-    private TableView<Wyposazenie> skonstruujTabele() {
+    private final TableView<Wyposazenie> skonstruujTabele() {
         TableColumn<Wyposazenie, Void> nrColumn = new TableColumn<>("Nr");
         nrColumn.setCellFactory(cell -> new TableCellNumerowany<>());
         nrColumn.setSortable(false);
@@ -238,7 +238,7 @@ public class PrzegladanieController {
     }
 
     // Metoda tworzaca kolumny tabeli
-    private TableColumn<Wyposazenie, String> utworzKolumne(String nazwa, String pole) {
+    private final TableColumn<Wyposazenie, String> utworzKolumne(String nazwa, String pole) {
         TableColumn<Wyposazenie, String> kolumna = new TableColumn<>(nazwa);
         kolumna.setCellValueFactory(new PropertyValueFactory<>(pole));
         kolumna.setCellFactory(cell -> new TableCellZTooltipem<>());
