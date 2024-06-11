@@ -7,6 +7,7 @@ Karwowski Karol:
 - TableCellZTooltipem.java
 - TableCellNumerowany.java
 - InneWyposazenie.java
+- SprzetTest.java
 - module-info i pom.xml
 
 Świderski Sebastian:
@@ -20,11 +21,11 @@ Karwowski Karol:
 - Regal.java
 - Stol.java
 - Szafa.java
+- MebelTest.java
 
 Sokołowski Mateusz:
 - SalaTest.java
 - UczelniaTest.java
-- WyposazenieTest.java
 - DodajController.java
 - WyswietlanieAlertow.java
 - Drukarka.java
