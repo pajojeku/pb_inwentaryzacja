@@ -48,8 +48,6 @@ Oto niektóre z kluczowych interfejsów i klas w pakiecie java.util:
 - **Iterator<E>** - iterator po kolekcji.
 - **Comparator<T>** - funkcja porównująca, która narzuca całkowite porządkowanie na pewnej kolekcji obiektów.
 
-Dokumentację pakietu java.util dla Java Platform SE 8 znajdziesz tutaj Java Platform SE 8. Zawiera ona bardziej szczegółowe opisy przeznaczone dla programistów, z konceptualnymi przeglądami, definicjami terminów, obejściami i przykładami działającego kodu. Jest to podstawowe źródło wiedzy dla programistów korzystających z java.util.
-
 ## Dokumentacja
 
 https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html
