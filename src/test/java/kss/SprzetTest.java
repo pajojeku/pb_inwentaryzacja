@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import kss.model.wyposazenie.Wyposazenie;
 import kss.model.wyposazenie.Wyposazenie.Stan;
-import kss.model.wyposazenie.mebel.Krzeslo;
 import kss.model.wyposazenie.sprzet.Laptop;
 
 import static org.junit.Assert.*;
